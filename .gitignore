@@ -87,3 +87,18 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+
+# ===== added by myself =====
+ffm
+
+.idea/
+*__pycache__*
+*/mark1
+base/mark/mark1/mark1
+
+nohup.out
+
+*.csv
+
+# ===================
