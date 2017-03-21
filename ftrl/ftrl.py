@@ -250,6 +250,9 @@ def data(path, D):
 
     row_length = -1
     for t, line in enumerate(open(path)):
+        # drop first line
+        if t == 0:
+            continue
         line = line.strip().split(" ")
         if row_length == -1:
             row_length = len(line)
