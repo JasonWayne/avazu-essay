@@ -26,8 +26,10 @@ if arg_count < 3:
 train = sys.argv[1]
 test = sys.argv[2]
 submission = sys.argv[3]  # path of to be outputted submission file
-interaction = sys.argv[4] if arg_count > 4 else 'n'
-interaction_file_path = sys.argv[5] if arg_count > 5 else ''
+# interaction = sys.argv[4] if arg_count > 4 else 'n'
+# interaction_file_path = sys.argv[5] if arg_count > 5 else ''
+interaction = False
+field = int(sys.argv[4])
 print "train -> {0}, test -> {1}, submission -> {2}".format(train, test, submission)
 
 # B, model
@@ -42,7 +44,7 @@ D = 1000000
 do_interactions = True if interaction == 'y' else False # whether to enable poly2 feature interactions
 
 # D, training/validation
-epoch = 3      # learn training data for N passes
+epoch = 1      # learn training data for N passes
 holdout = 100  # use every N training instance for holdout validation
 
 
@@ -265,7 +267,7 @@ def data(path, D):
         # build x
         x = [0]  # 0 is the index of the bias term
         # for key in xrange(2, row_length):  # sort is for preserving feature ordering
-        for key in xrange(3, 4):  # sort is for preserving feature ordering
+        for key in xrange(field, field + 1):  # sort is for preserving feature ordering
             value = line[key]
 
             # one-hot encode everything with hash trick
