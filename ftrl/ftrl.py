@@ -3,6 +3,7 @@ from datetime import datetime
 from csv import DictReader
 from math import exp, log, sqrt
 import sys
+import time
 
 
 # TL; DR, the main training process starts on line: 282,
@@ -46,6 +47,8 @@ do_interactions = True if interaction == 'y' else False # whether to enable poly
 # D, training/validation
 epoch = 1      # learn training data for N passes
 holdout = 100  # use every N training instance for holdout validation
+
+global_time_counter = 0
 
 
 
@@ -325,5 +328,9 @@ for e in xrange(epoch):
 
 with open(submission, 'w') as outfile:
     for t, ID, x, y in data(test, D):
+        start_time = time.time()
         p = learner.predict(x)
+        end_time = time.time()
+        predict_time_used = end_time - start_time
+        print("predict time used --> " + predict_time_used)
         outfile.write('%s,%s\n' % (ID, str(p)))
