@@ -210,4 +210,4 @@ with open(submission, 'w') as outfile:
         outfile.write('%s,%s\n' % (ID, str(p)))
 
 print("total non-zero weights --> " + str(len(filter(lambda x: x != 0, learner.w))))
-print("predict time used --> " + predict_time)
+print("predict time used --> " + str(predict_time))
