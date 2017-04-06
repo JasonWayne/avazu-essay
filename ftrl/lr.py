@@ -132,7 +132,7 @@ def data(path, D):
         # drop first line
         if t == 0:
             continue
-        line = line.strip().split(",")
+        line = line.strip().split(" ")
         if row_length == -1:
             row_length = len(line)
         # process id
