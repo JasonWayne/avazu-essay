@@ -100,5 +100,6 @@ base/mark/mark1/mark1
 nohup.out
 
 *.csv
+*.txt
 
 # ===================
