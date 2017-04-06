@@ -269,8 +269,8 @@ def data(path, D):
 
         # build x
         x = [0]  # 0 is the index of the bias term
-        # for key in xrange(2, row_length):  # sort is for preserving feature ordering
-        for key in xrange(field, field + 1):  # sort is for preserving feature ordering
+        for key in xrange(2, row_length):  # sort is for preserving feature ordering
+        # for key in xrange(field, field + 1):  # sort is for preserving feature ordering
             value = line[key]
 
             # one-hot encode everything with hash trick

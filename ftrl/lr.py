@@ -205,5 +205,5 @@ with open(submission, 'w') as outfile:
         p = learner.predict(x)
         end_time = time.time()
         predict_time_used = end_time - start_time
-        print("predict time used --> " + predict_time_used)
+        print("predict time used --> " + str(predict_time_used))
         outfile.write('%s,%s\n' % (ID, str(p)))
