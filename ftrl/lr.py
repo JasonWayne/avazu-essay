@@ -199,11 +199,15 @@ for e in xrange(epoch):
 # start testing, and build Kaggle's submission file ##########################
 ##############################################################################
 
+predict_time = 0
 with open(submission, 'w') as outfile:
     for t, ID, x, y in data(test, D):
         start_time = time.time()
         p = learner.predict(x)
         end_time = time.time()
-        predict_time_used = end_time - start_time
-        print("predict time used --> " + str(predict_time_used))
+        interval = end_time - start_time
+        predict_time += interval
         outfile.write('%s,%s\n' % (ID, str(p)))
+
+print("total non-zero weights --> " + str(len(filter(lambda x: x != 0, learner.w))))
+print("predict time used --> " + predict_time)
